@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://byvf575gxveuu"]
+
+[ext_resource type="Script" path="res://Game Elements/Enemies/enemy_elf.gd" id="1_ku5wn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66v7h"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8652o"]
+radius = 20.3961
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e7lrr"]
+size = Vector2(8, 8)
+
+[node name="EnemyElf" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ku5wn")
+
+[node name="Character Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_66v7h")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Hitbox Collision" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_8652o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.12549, 0.0117647, 1)
+z_index = 1
+texture = SubResource("PlaceholderTexture2D_e7lrr")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://djm7kgb3plrrt"]
+
+[ext_resource type="Script" path="res://Game Elements/Towers/archer_tower.gd" id="1_b4yjq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u5yy0"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc2bg"]
+radius = 147.231
+
+[node name="ArcherTower" type="Node2D"]
+script = ExtResource("1_b4yjq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.262745, 0.380392, 0.603922, 1)
+texture = SubResource("PlaceholderTexture2D_u5yy0")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_yc2bg")
