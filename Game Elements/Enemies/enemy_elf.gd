@@ -1,14 +1,16 @@
-extends CharacterBody2D
+extends Enemy
+# Reference enemy_class for parent functions and values
 
-
-const SPEED = 300.0
-#const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-func _ready():
-	velocity.x = 30
+func _init(): # Called on class initialization
 	
-func _physics_process(delta):
-
-	move_and_slide()
+	SPEED = 30.0
+	HEALTH = 5.0
+	ARMOR = 0.0
+	MAGICARMOR = 0.0
+	DAMAGE = 2.0
+	LIVESCOST = 1.0
+	
+func _ready(): # Called at end of node setup (children are ready)
+	
+	velocity.x = SPEED
+	

@@ -56,13 +56,13 @@ position = Vector2(114, 217)
 [node name="Group1" type="Node2D" parent="Enviroment/EnemyCollectionInactive/Wave1"]
 
 [node name="EnemyElf" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-45, 266)
+position = Vector2(-10, 282)
 
 [node name="EnemyElf2" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-68, 290)
+position = Vector2(-112, 283)
 
 [node name="EnemyElf3" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-86, 261)
+position = Vector2(-292, 285)
 
 [node name="Group2" type="Node2D" parent="Enviroment/EnemyCollectionInactive/Wave1"]
 visible = false
