@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://0wclkkss0bym"]
+[gd_scene load_steps=8 format=3 uid="uid://0wclkkss0bym"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gejdv"]
 [ext_resource type="Texture2D" uid="uid://b2aa5e6v4xl2" path="res://Art Assets/Enviroment/Enviroment.png" id="2_1bos2"]
-[ext_resource type="PackedScene" uid="uid://djm7kgb3plrrt" path="res://Game Elements/Towers/archer_tower.tscn" id="3_wyxjk"]
 [ext_resource type="PackedScene" uid="uid://cx7sjqw5qw11t" path="res://Game Elements/Enviroment/build_spot.tscn" id="4_ex3fv"]
 [ext_resource type="PackedScene" uid="uid://baruv7r3any4c" path="res://Game Elements/UI/ui.tscn" id="5_bm8g6"]
 [ext_resource type="PackedScene" uid="uid://byvf575gxveuu" path="res://Game Elements/Enemies/enemy_elf.tscn" id="5_s0t3u"]
@@ -20,6 +19,7 @@ sources/0 = SubResource("TileSetAtlasSource_vg0cv")
 script = ExtResource("1_gejdv")
 
 [node name="Enviroment" type="TileMap" parent="."]
+texture_filter = 1
 tile_set = SubResource("TileSet_kf0u4")
 format = 2
 layer_0/name = "Ground"
@@ -28,9 +28,6 @@ layer_1/name = "Ground Objects"
 layer_1/tile_data = PackedInt32Array(1507386, 131072, 0, 983098, 131072, 0)
 
 [node name="PlayerInteractables" type="Node2D" parent="Enviroment"]
-
-[node name="ArcherTower" parent="Enviroment/PlayerInteractables" instance=ExtResource("3_wyxjk")]
-position = Vector2(382, 193)
 
 [node name="BuildSpot" parent="Enviroment/PlayerInteractables" instance=ExtResource("4_ex3fv")]
 position = Vector2(655, 179)
@@ -47,6 +44,9 @@ position = Vector2(370, 360)
 [node name="BuildSpot5" parent="Enviroment/PlayerInteractables" instance=ExtResource("4_ex3fv")]
 position = Vector2(114, 217)
 
+[node name="BuildSpot6" parent="Enviroment/PlayerInteractables" instance=ExtResource("4_ex3fv")]
+position = Vector2(356, 196)
+
 [node name="EnemyCollectionActive" type="Node2D" parent="Enviroment"]
 
 [node name="EnemyCollectionInactive" type="Node2D" parent="Enviroment"]
@@ -56,16 +56,33 @@ position = Vector2(114, 217)
 [node name="Group1" type="Node2D" parent="Enviroment/EnemyCollectionInactive/Wave1"]
 
 [node name="EnemyElf" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-10, 282)
+position = Vector2(-30, 278)
 
 [node name="EnemyElf2" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-112, 283)
+position = Vector2(-47, 295)
 
 [node name="EnemyElf3" parent="Enviroment/EnemyCollectionInactive/Wave1/Group1" instance=ExtResource("5_s0t3u")]
-position = Vector2(-292, 285)
+position = Vector2(-57, 277)
 
 [node name="Group2" type="Node2D" parent="Enviroment/EnemyCollectionInactive/Wave1"]
-visible = false
+
+[node name="EnemyElf" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-240, 290)
+
+[node name="EnemyElf2" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-261, 290)
+
+[node name="EnemyElf3" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-281, 281)
+
+[node name="EnemyElf4" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-261, 305)
+
+[node name="EnemyElf5" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-261, 276)
+
+[node name="EnemyElf6" parent="Enviroment/EnemyCollectionInactive/Wave1/Group2" instance=ExtResource("5_s0t3u")]
+position = Vector2(-279, 302)
 
 [node name="Group3" type="Node2D" parent="Enviroment/EnemyCollectionInactive/Wave1"]
 visible = false

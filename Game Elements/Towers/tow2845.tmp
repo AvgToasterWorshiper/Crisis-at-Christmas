@@ -5,11 +5,13 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5ekjp"]
 size = Vector2(2, 2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_68xjx"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ensr0"]
 radius = 1.0
+height = 2.0
 
-[node name="TowerArrow" type="Area2D"]
-modulate = Color(0.458824, 0.239216, 0.00392157, 1)
+[node name="TowerArrow" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_h2ffm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,6 +19,7 @@ modulate = Color(0, 0, 1, 1)
 texture = SubResource("PlaceholderTexture2D_5ekjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_68xjx")
+shape = SubResource("CapsuleShape2D_ensr0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

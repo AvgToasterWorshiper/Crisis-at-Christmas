@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://Game Elements/Towers/archer_tower.gd" id="1_b4yjq"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u5yy0"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cuomr"]
 size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc2bg"]
-radius = 147.231
+radius = 147.0
 
 [node name="ArcherTower" type="Node2D"]
 script = ExtResource("1_b4yjq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.262745, 0.380392, 0.603922, 1)
-texture = SubResource("PlaceholderTexture2D_u5yy0")
+modulate = Color(0.458824, 0.239216, 0.00392157, 1)
+texture = SubResource("PlaceholderTexture2D_cuomr")
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -21,6 +21,7 @@ texture = SubResource("PlaceholderTexture2D_u5yy0")
 shape = SubResource("CircleShape2D_yc2bg")
 
 [node name="AttackSpeed" type="Timer" parent="."]
+wait_time = 0.8
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

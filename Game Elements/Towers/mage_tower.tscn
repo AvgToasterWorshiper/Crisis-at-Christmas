@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4lrdxn00w22n"]
+
+[ext_resource type="Script" path="res://Game Elements/Towers/mage_tower.gd" id="1_5hho2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s48ta"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j78r3"]
+radius = 96.1301
+
+[node name="MageTower" type="Node2D"]
+modulate = Color(0.317647, 0.796078, 1, 1)
+texture_filter = 1
+script = ExtResource("1_5hho2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_s48ta")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_j78r3")
+
+[node name="AttackSpeed" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="AttackSpeed" to="." method="_on_attack_speed_timeout"]
