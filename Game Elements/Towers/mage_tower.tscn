@@ -6,7 +6,7 @@
 size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j78r3"]
-radius = 96.1301
+radius = 132.0
 
 [node name="MageTower" type="Node2D"]
 modulate = Color(0.317647, 0.796078, 1, 1)

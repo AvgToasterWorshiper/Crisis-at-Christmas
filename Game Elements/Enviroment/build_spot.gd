@@ -20,11 +20,17 @@ func _on_menu_button_mouse_exited():
 func _on_menu_button_pressed(id : int = -1) -> void:
 	match id:
 		0: 
-			$Sprite2D.hide()
-			$MenuButton.disabled = true
-			add_child(ARCHERTOWER.instantiate())
-			# This is breaking because the archer tower script is getting x,y from its parent and its parent is now Buildspot not Enviroment
+			if Main.GOLD >= 90:
+				Main.GOLD -= 90
+				UI.update_ui() # This is referencing the global made AUTOLOAD UI scene not the premade child of main
+				$Sprite2D.hide()
+				$MenuButton.disabled = true
+				add_child(ARCHERTOWER.instantiate())
+				# This is breaking because the archer tower script is getting x,y from its parent and its parent is now Buildspot not Enviroment
 		1: 
-			$Sprite2D.hide()
-			$MenuButton.disabled = true
-			add_child(MAGETOWER.instantiate())
+			if Main.GOLD >= 100:
+				Main.GOLD -= 100
+				UI.update_ui() # This is referencing the global made AUTOLOAD UI scene not the premade child of main
+				$Sprite2D.hide()
+				$MenuButton.disabled = true
+				add_child(MAGETOWER.instantiate())

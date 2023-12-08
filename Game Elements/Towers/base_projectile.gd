@@ -32,4 +32,7 @@ func _process(delta): # This will make the arrow follow its path # Called every 
 		t += delta
 	position = _quadratic_bezier(p0, p1, calculated_flightime_pos-p2, t)
 	
+	# TODO IF PROJECTILE ON FLOOR DISABLE, CANT QUITE FIGURE THE BEST WAY TO REPRESENT ITS END OF TRAVEL
+		#$CollisionShape2D.disabled = true
+	
 	# IMPORTANT!: Hit registration is done in child class

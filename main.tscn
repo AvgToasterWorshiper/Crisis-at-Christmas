@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://0wclkkss0bym"]
+[gd_scene load_steps=7 format=3 uid="uid://0wclkkss0bym"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gejdv"]
 [ext_resource type="Texture2D" uid="uid://b2aa5e6v4xl2" path="res://Art Assets/Enviroment/Enviroment.png" id="2_1bos2"]
 [ext_resource type="PackedScene" uid="uid://cx7sjqw5qw11t" path="res://Game Elements/Enviroment/build_spot.tscn" id="4_ex3fv"]
-[ext_resource type="PackedScene" uid="uid://baruv7r3any4c" path="res://Game Elements/UI/ui.tscn" id="5_bm8g6"]
 [ext_resource type="PackedScene" uid="uid://byvf575gxveuu" path="res://Game Elements/Enemies/enemy_elf.tscn" id="5_s0t3u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vg0cv"]
@@ -107,5 +106,3 @@ visible = false
 
 [node name="Wave7" type="Node2D" parent="Enviroment/EnemyCollectionInactive"]
 visible = false
-
-[node name="UI" parent="." instance=ExtResource("5_bm8g6")]

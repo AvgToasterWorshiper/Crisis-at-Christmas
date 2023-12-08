@@ -1,7 +1,7 @@
 extends Projectile
 
 func _ready():
-	DAMAGE = -2
+	DAMAGE = -3
 	projectile_arc = 50
 	p1 = Vector2(0, 0).lerp((CURRENT_TARGET.position - self.position), 0.5) # switch relative for self.position for magic attack
 	
