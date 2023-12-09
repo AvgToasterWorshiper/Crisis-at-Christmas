@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://caq7oqwsw82ut"]
+
+[ext_resource type="Script" path="res://Game Elements/Enemies/EnemyReindeer.cs" id="1_4joqp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0hrmf"]
+size = Vector2(8, 8)
+
+[node name="EnemyReindeer" type="CharacterBody2D"]
+script = ExtResource("1_4joqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.227451, 0.678431, 1, 1)
+z_index = 1
+texture = SubResource("PlaceholderTexture2D_0hrmf")
