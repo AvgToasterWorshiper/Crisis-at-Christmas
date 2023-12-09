@@ -8,6 +8,7 @@ func _ready():
 	update_ui()
 
 func update_ui():
+	var main = get_node("/root/Main")
 	get_node("MarginContainer/HBoxContainer/VBoxContainer/Gold/Label").text = "Gold: {value}".format({"value": Main.GOLD})
 	get_node("MarginContainer/HBoxContainer/VBoxContainer/Lives/Label").text = "Lives: {value}".format({"value": Main.LIVES})
 	get_node("MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/Label").text = "Wave: {current}/{total}".format({"current": Main.CURRENT_WAVE, "total": Main.TOTAL_WAVES})

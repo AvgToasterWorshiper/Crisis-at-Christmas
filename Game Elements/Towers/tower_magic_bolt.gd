@@ -7,5 +7,5 @@ func _ready():
 	
 func _on_body_entered(body):
 	if body is Enemy:
-		body.update_health(DAMAGE)
+		body.UpdateHealth(DAMAGE)
 		queue_free()

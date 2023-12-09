@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://byvf575gxveuu"]
 
-[ext_resource type="Script" path="res://Game Elements/Enemies/enemy_elf.gd" id="1_ku5wn"]
+[ext_resource type="Script" path="res://Game Elements/Enemies/EnemyElf.cs" id="1_vn3b6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8652o"]
 radius = 20.3961
@@ -27,7 +27,7 @@ width = 4
 [node name="EnemyElf" type="CharacterBody2D"]
 texture_filter = 1
 motion_mode = 1
-script = ExtResource("1_ku5wn")
+script = ExtResource("1_vn3b6")
 
 [node name="Agro Range" type="Area2D" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-extends Enemy
+extends EnemyGD
 # Reference enemy_class for parent functions and values
 
 func _init(): # Called on class initialization
