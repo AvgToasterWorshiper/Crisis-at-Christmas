@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc09f83f-038a-44d7-9ed6-36e81545c1cf" name="Changes" comment="" />
+    <list default="true" id="cc09f83f-038a-44d7-9ed6-36e81545c1cf" name="Changes" comment="idk why none of the new code got committed, that's just amazing">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Crisis At Christmas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crisis At Christmas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/enemy_reindeer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/enemy_reindeer.tscn" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,27 +54,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "CSPort",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;CSPort&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Matt\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Matt\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Matt\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Matt\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Matt\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Matt\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Godot_v4.2-stable_mono_win64/Godot_v4.2-stable_mono_win64.exe" />
@@ -117,6 +121,7 @@
       <workItem from="1702051255754" duration="3367000" />
       <workItem from="1702076041599" duration="3577000" />
       <workItem from="1702080277570" duration="2785000" />
+      <workItem from="1702092635655" duration="1019000" />
     </task>
     <task id="LOCAL-00001" summary="started porting ui stuff to cs">
       <option name="closed" value="true" />
@@ -142,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702083267311</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="idk why none of the new code got committed, that's just amazing">
+      <option name="closed" value="true" />
+      <created>1702092677938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702092677938</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,13 +167,7 @@
     <MESSAGE value="started porting ui stuff to cs" />
     <MESSAGE value="actually add the C# stuff" />
     <MESSAGE value="Start C# port" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start C# port" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="RunExe">
-        <watch expression="Main" language="C#" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="idk why none of the new code got committed, that's just amazing" />
+    <option name="LAST_COMMIT_MESSAGE" value="idk why none of the new code got committed, that's just amazing" />
   </component>
 </project>

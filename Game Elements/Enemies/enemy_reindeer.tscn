@@ -1,14 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://caq7oqwsw82ut"]
+[gd_scene load_steps=8 format=3 uid="uid://caq7oqwsw82ut"]
 
 [ext_resource type="Script" path="res://Game Elements/Enemies/EnemyReindeer.cs" id="1_4joqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6w6b"]
+radius = 20.3961
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0hrmf"]
 size = Vector2(8, 8)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mc8r3"]
+radius = 5.09902
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fg6cp"]
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_dm5ci"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+metadata/_snap_count = 12
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nb8ml"]
+gradient = SubResource("Gradient_dm5ci")
+width = 4
+
 [node name="EnemyReindeer" type="CharacterBody2D"]
 script = ExtResource("1_4joqp")
+
+[node name="Agro Range" type="Area2D" parent="."]
+visible = false
+
+[node name="Range" type="CollisionShape2D" parent="Agro Range"]
+visible = false
+shape = SubResource("CircleShape2D_m6w6b")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.227451, 0.678431, 1, 1)
 z_index = 1
 texture = SubResource("PlaceholderTexture2D_0hrmf")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_mc8r3")
+
+[node name="UnitSizeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnitSizeArea"]
+shape = SubResource("CircleShape2D_fg6cp")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = -5.0
+max_value = 4.0
+value = 4.0
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_nb8ml")

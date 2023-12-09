@@ -24,7 +24,6 @@ public abstract partial class Enemy : CharacterBody2D
 		Damage = damage;
 		LivesCost = livesCost;
 		GoldReward = goldReward;
-		HealthBar = new TextureProgressBar();
 	}
 
 	public void UpdateHealth(float value)
@@ -64,6 +63,9 @@ public abstract partial class Enemy : CharacterBody2D
 	public override void _Ready()
 	{
 		Velocity = new Vector2(Speed, 0f);
+		
+		// Is it bad practice to hardcode the progressbar name? Yes. Does it still work? Also yes!
+		HealthBar = GetNode<TextureProgressBar>("HealthBar");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
