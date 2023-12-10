@@ -1,10 +1,11 @@
 extends Area2D
 class_name Projectile
-
+# TODO GET PROJECTILE TO IGNORE OTHER COLLISIONS BESIDES THE TARGET
 var p0 : Vector2
 var p1 : Vector2
 var p2 : Vector2
 var t : float
+var count = 0
 var CURRENT_TARGET : Enemy
 var DAMAGE = -1
 var calculated_flightime_pos : Vector2
@@ -15,7 +16,7 @@ func initialize(absolute_orgin, elevated_midway, relative_tower_orgin, c_t): # W
 	p1 = elevated_midway #Arc height position to interpolate
 	p2 = relative_tower_orgin # current target position from call time
 	CURRENT_TARGET = c_t # Live reference to current target object
-	calculated_flightime_pos = CURRENT_TARGET.position + CURRENT_TARGET.velocity
+	calculated_flightime_pos = CURRENT_TARGET.global_position + (CURRENT_TARGET.velocity)
 	
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float): # https://docs.godotengine.org/en/stable/tutorials/math/beziers_and_curves.html#quadratic-bezier 
 		var q0 = p0.lerp(p1, t)
@@ -27,12 +28,13 @@ func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float): # https
 func _ready():
 	pass
 	
-func _process(delta): # This will make the arrow follow its path # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta): # This will make the arrow follow its path # Called every frame. 'delta' is the elapsed time since
+	if is_instance_valid(CURRENT_TARGET): # Need this because the enemy is freed as the next arrow is still calculating its position every frame
+		calculated_flightime_pos = CURRENT_TARGET.global_position + (CURRENT_TARGET.velocity)
 	if t < 1.0: # TODO Controlls flight time and smoothness, this needs to change, need to incorperate delta and lerp over a set flight time possibly.
 		t += delta
+	elif t >= 1.0:
+		$CollisionShape2D.disabled = true
 	position = _quadratic_bezier(p0, p1, calculated_flightime_pos-p2, t)
-	
-	# TODO IF PROJECTILE ON FLOOR DISABLE, CANT QUITE FIGURE THE BEST WAY TO REPRESENT ITS END OF TRAVEL
-		#$CollisionShape2D.disabled = true
 	
 	# IMPORTANT!: Hit registration is done in child class

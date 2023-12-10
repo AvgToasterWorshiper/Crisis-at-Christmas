@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://co5vt61mrxut4"]
+
+[ext_resource type="PackedScene" uid="uid://byvf575gxveuu" path="res://Game Elements/Enemies/enemy_snowman.tscn" id="1_5q4pb"]
+
+[node name="SnowmanFollower" type="PathFollow2D"]
+rotates = false
+loop = false
+
+[node name="EnemySnowman" parent="." instance=ExtResource("1_5q4pb")]

@@ -18,9 +18,10 @@ func _process(delta):
 	
 	if (CURRENT_TARGET == null) or (CURRENT_TARGET not in ENEMY_INRANGE_LIST): #If not already shooting or enemy left range
 		for enemy in ENEMY_INRANGE_LIST: #Find enemy furthest along in range using Vectors
+			print(enemy.global_position)
 			
-			if enemy.position > FURTHEST:
-				FURTHEST = enemy.position # TODO This needs to change to reflect furthest along in level path
+			if enemy.global_position > FURTHEST:
+				FURTHEST = enemy.global_position
 				CURRENT_TARGET = enemy # Set that enemy as target
 	
 	else:
@@ -30,7 +31,7 @@ func _process(delta):
 			var projectile = PROJECTILE.instantiate()
 			var zero_vector = Vector2(0, 0)
 			var relative_tower_orgin = get_parent().position
-			var elevated_midway = zero_vector.lerp((CURRENT_TARGET.position - relative_tower_orgin), 0.5) # switch relative for self.position for magic attack
+			var elevated_midway = zero_vector.lerp((CURRENT_TARGET.global_position - relative_tower_orgin), 0.5) # switch relative for self.position for magic attack
 			elevated_midway.y += projectile.projectile_arc # Elevate
 			
 			projectile.initialize(zero_vector, elevated_midway, relative_tower_orgin, CURRENT_TARGET) 
@@ -39,13 +40,17 @@ func _process(delta):
 			$AttackSpeed.start()
 			
 func _on_range_body_entered(body):
-	if body is Enemy: # If they extend the enemy class
+	#print(body.get_class())
+	#print(body is CharacterBody2D)
+	#if body is Enemy: # If they extend the enemy class
+	if body is CharacterBody2D:
 		#print("Entered Entered Range: {name}".format({"name": body.name}))
 		# Add to enemy in range list
 		ENEMY_INRANGE_LIST.append(body)
 
 func _on_range_body_exited(body):
-	if body is Enemy: # If they extend the enemy class
+	#if body is Enemy: # If they extend the enemy class
+	if body is CharacterBody2D:
 		#print("Entered Left Range: {name}".format({"name": body.name}))
 		# Remove from range list
 		ENEMY_INRANGE_LIST.erase(body)
