@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(total_groups)
+	pass
 
 func _on_wave_timer_timeout():
 	active_group += 1

@@ -32,7 +32,6 @@ func die():
 	$Collision.set_deferred("disabled", true)
 	Main.GOLD += GOLD
 	UI.update_ui()
-	
 	#queue_free()
 	
 func _ready():
