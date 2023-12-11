@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://0wclkkss0bym"]
+[gd_scene load_steps=12 format=3 uid="uid://0wclkkss0bym"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gejdv"]
 [ext_resource type="Texture2D" uid="uid://b2aa5e6v4xl2" path="res://Art Assets/Enviroment/Enviroment.png" id="2_1bos2"]
 [ext_resource type="PackedScene" uid="uid://co5vt61mrxut4" path="res://Game Elements/Enemies/snowman_follower.tscn" id="4_3lv3d"]
 [ext_resource type="PackedScene" uid="uid://cx7sjqw5qw11t" path="res://Game Elements/Enviroment/build_spot.tscn" id="4_ex3fv"]
-[ext_resource type="Script" path="res://WaveProgressionScript.gd" id="4_o2xu1"]
+[ext_resource type="Script" path="res://Game Elements/Enviroment/WaveProgressionScript.gd" id="4_o2xu1"]
 [ext_resource type="PackedScene" uid="uid://dpfhimf1cojx" path="res://Game Elements/Enviroment/map_path.tscn" id="4_onw7w"]
+[ext_resource type="PackedScene" uid="uid://dhch1iiyoduru" path="res://Game Elements/Enemies/penguin_follower.tscn" id="7_l5rgk"]
+[ext_resource type="AudioStream" uid="uid://davyx7yp27sqx" path="res://Music and Sound/15 Snowy Mountain.mp3" id="8_ca1cm"]
+[ext_resource type="PackedScene" uid="uid://4nwyo2v07acb" path="res://Game Elements/Enemies/raindeer_follower.tscn" id="8_uyk8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vg0cv"]
 texture = ExtResource("2_1bos2")
@@ -128,7 +131,7 @@ wait_time = 6.0
 autostart = true
 
 [node name="BreakTime" type="Timer" parent="Enviroment/Wave1"]
-wait_time = 5.0
+wait_time = 4.0
 
 [node name="Wave2" type="Node2D" parent="Enviroment"]
 process_mode = 4
@@ -137,32 +140,41 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave2" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave2/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
+[node name="PenguinFollower" parent="Enviroment/Wave2/Group1" instance=ExtResource("7_l5rgk")]
+position = Vector2(294, -146)
+h_offset = -15.0
 
-[node name="ElfFollower2" parent="Enviroment/Wave2/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
-
-[node name="ElfFollower3" parent="Enviroment/Wave2/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
+[node name="PenguinFollower2" parent="Enviroment/Wave2/Group1" instance=ExtResource("7_l5rgk")]
+position = Vector2(324, -146)
+h_offset = 15.0
 
 [node name="Group2" parent="Enviroment/Wave2" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
 [node name="SnowmanFollower" parent="Enviroment/Wave2/Group2" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
+z_index = 2
+position = Vector2(309.822, -106.009)
+progress = 40.0
 
 [node name="SnowmanFollower2" parent="Enviroment/Wave2/Group2" instance=ExtResource("4_3lv3d")]
 position = Vector2(309, -146)
+
+[node name="SnowmanFollower3" parent="Enviroment/Wave2/Group2" instance=ExtResource("4_3lv3d")]
+z_index = 1
+position = Vector2(334.413, -125.919)
+progress = 20.0
+h_offset = 25.0
+
+[node name="SnowmanFollower4" parent="Enviroment/Wave2/Group2" instance=ExtResource("4_3lv3d")]
+z_index = 1
+position = Vector2(284.413, -125.919)
+progress = 20.0
+h_offset = -25.0
+
+[node name="PenguinFollower" parent="Enviroment/Wave2/Group2" instance=ExtResource("7_l5rgk")]
+z_index = 1
+position = Vector2(309.413, -125.919)
+progress = 20.0
 
 [node name="Group3" parent="Enviroment/Wave2" instance=ExtResource("4_onw7w")]
 process_mode = 4
@@ -194,12 +206,17 @@ z_index = 1
 position = Vector2(294, -146)
 h_offset = -15.0
 
+[node name="SnowmanFollower9" parent="Enviroment/Wave2/Group3" instance=ExtResource("4_3lv3d")]
+z_index = 1
+position = Vector2(309.307, -131.061)
+progress = 15.0
+
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave2"]
-wait_time = 6.0
+wait_time = 8.0
 autostart = true
 
 [node name="BreakTime" type="Timer" parent="Enviroment/Wave2"]
-wait_time = 5.0
+wait_time = 6.0
 
 [node name="Wave3" type="Node2D" parent="Enviroment"]
 process_mode = 4
@@ -208,69 +225,93 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave3" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave3/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
+[node name="RaindeerFollower" parent="Enviroment/Wave3/Group1" instance=ExtResource("8_uyk8w")]
+z_index = 6
+position = Vector2(321.465, -26.0169)
+progress = 120.0
+h_offset = 10.0
 
-[node name="ElfFollower2" parent="Enviroment/Wave3/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
+[node name="RaindeerFollower2" parent="Enviroment/Wave3/Group1" instance=ExtResource("8_uyk8w")]
+z_index = 6
+position = Vector2(300.233, -86.0145)
+progress = 60.0
+h_offset = -10.0
 
-[node name="ElfFollower3" parent="Enviroment/Wave3/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
+[node name="RaindeerFollower3" parent="Enviroment/Wave3/Group1" instance=ExtResource("8_uyk8w")]
+z_index = 6
+position = Vector2(309, -146)
 
 [node name="Group2" parent="Enviroment/Wave3" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
 [node name="SnowmanFollower" parent="Enviroment/Wave3/Group2" instance=ExtResource("4_3lv3d")]
 z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
+position = Vector2(270.643, -66.0166)
+progress = 80.0
+h_offset = -40.0
 
 [node name="SnowmanFollower2" parent="Enviroment/Wave3/Group2" instance=ExtResource("4_3lv3d")]
+position = Vector2(310.643, -66.0166)
+progress = 80.0
+
+[node name="SnowmanFollower3" parent="Enviroment/Wave3/Group2" instance=ExtResource("4_3lv3d")]
+position = Vector2(350.643, -66.0166)
+progress = 80.0
+h_offset = 40.0
+
+[node name="PenguinFollower" parent="Enviroment/Wave3/Group2" instance=ExtResource("7_l5rgk")]
+z_index = 1
+position = Vector2(309.822, -106.009)
+progress = 40.0
+
+[node name="RaindeerFollower" parent="Enviroment/Wave3/Group2" instance=ExtResource("8_uyk8w")]
+z_index = 6
 position = Vector2(309, -146)
 
 [node name="Group3" parent="Enviroment/Wave3" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="SnowmanFollower" parent="Enviroment/Wave3/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(329.616, -116.016)
-progress = 30.0
-h_offset = 20.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave3/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(289.616, -116.016)
-progress = 30.0
+[node name="PenguinFollower" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(289.822, -106.009)
+progress = 40.0
 h_offset = -20.0
 
-[node name="SnowmanFollower3" parent="Enviroment/Wave3/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 3
-position = Vector2(310.027, -96.0138)
-progress = 50.0
+[node name="PenguinFollower2" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(329.822, -106.009)
+progress = 40.0
+h_offset = 20.0
 
-[node name="SnowmanFollower4" parent="Enviroment/Wave3/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(324, -146)
-h_offset = 15.0
+[node name="PenguinFollower3" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(329, -146)
+h_offset = 20.0
 
-[node name="SnowmanFollower5" parent="Enviroment/Wave3/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(294, -146)
-h_offset = -15.0
+[node name="PenguinFollower4" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(289, -146)
+h_offset = -20.0
+
+[node name="PenguinFollower5" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(309.822, -106.009)
+progress = 40.0
+
+[node name="PenguinFollower6" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(329.413, -125.919)
+progress = 20.0
+h_offset = 20.0
+
+[node name="PenguinFollower7" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(309, -146)
+
+[node name="PenguinFollower8" parent="Enviroment/Wave3/Group3" instance=ExtResource("7_l5rgk")]
+position = Vector2(289.413, -125.919)
+progress = 20.0
+h_offset = -20.0
 
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave3"]
-wait_time = 6.0
+wait_time = 7.0
 autostart = true
 
 [node name="BreakTime" type="Timer" parent="Enviroment/Wave3"]
-wait_time = 5.0
+wait_time = 6.0
 
 [node name="Wave4" type="Node2D" parent="Enviroment"]
 process_mode = 4
@@ -279,69 +320,104 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave4" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
-
-[node name="ElfFollower2" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
-
-[node name="ElfFollower3" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
-
-[node name="Group2" parent="Enviroment/Wave4" instance=ExtResource("4_onw7w")]
-process_mode = 4
-
-[node name="SnowmanFollower" parent="Enviroment/Wave4/Group2" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave4/Group2" instance=ExtResource("4_3lv3d")]
+[node name="PenguinFollower" parent="Enviroment/Wave4/Group1" instance=ExtResource("7_l5rgk")]
 position = Vector2(309, -146)
 
-[node name="Group3" parent="Enviroment/Wave4" instance=ExtResource("4_onw7w")]
-process_mode = 4
+[node name="PenguinFollower2" parent="Enviroment/Wave4/Group1" instance=ExtResource("7_l5rgk")]
+z_index = 4
+position = Vector2(310.438, -76.0151)
+progress = 70.0
 
-[node name="SnowmanFollower" parent="Enviroment/Wave4/Group3" instance=ExtResource("4_3lv3d")]
+[node name="PenguinFollower3" parent="Enviroment/Wave4/Group1" instance=ExtResource("7_l5rgk")]
 z_index = 2
-position = Vector2(329.616, -116.016)
-progress = 30.0
-h_offset = 20.0
+position = Vector2(309.719, -111.017)
+progress = 35.0
 
-[node name="SnowmanFollower2" parent="Enviroment/Wave4/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(289.616, -116.016)
-progress = 30.0
-h_offset = -20.0
+[node name="SnowmanFollower" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
+position = Vector2(339.205, -136.03)
+progress = 10.0
+h_offset = 30.0
 
-[node name="SnowmanFollower3" parent="Enviroment/Wave4/Group3" instance=ExtResource("4_3lv3d")]
+[node name="SnowmanFollower2" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
+position = Vector2(279.205, -136.03)
+progress = 10.0
+h_offset = -30.0
+
+[node name="SnowmanFollower3" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
+position = Vector2(309.205, -136.03)
+progress = 10.0
+
+[node name="SnowmanFollower4" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
+z_index = 3
+position = Vector2(340.027, -96.0138)
+progress = 50.0
+h_offset = 30.0
+
+[node name="SnowmanFollower5" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
+z_index = 3
+position = Vector2(280.027, -96.0138)
+progress = 50.0
+h_offset = -30.0
+
+[node name="SnowmanFollower6" parent="Enviroment/Wave4/Group1" instance=ExtResource("4_3lv3d")]
 z_index = 3
 position = Vector2(310.027, -96.0138)
 progress = 50.0
 
-[node name="SnowmanFollower4" parent="Enviroment/Wave4/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(324, -146)
-h_offset = 15.0
+[node name="Group2" parent="Enviroment/Wave4" instance=ExtResource("4_onw7w")]
+process_mode = 4
 
-[node name="SnowmanFollower5" parent="Enviroment/Wave4/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(294, -146)
-h_offset = -15.0
+[node name="PenguinFollower" parent="Enviroment/Wave4/Group2" instance=ExtResource("7_l5rgk")]
+position = Vector2(271.672, -15.9659)
+progress = 130.0
+h_offset = -40.0
+
+[node name="PenguinFollower2" parent="Enviroment/Wave4/Group2" instance=ExtResource("7_l5rgk")]
+position = Vector2(351.672, -15.9659)
+progress = 130.0
+h_offset = 40.0
+
+[node name="PenguinFollower4" parent="Enviroment/Wave4/Group2" instance=ExtResource("7_l5rgk")]
+position = Vector2(331.465, -26.0169)
+progress = 120.0
+h_offset = 20.0
+
+[node name="PenguinFollower5" parent="Enviroment/Wave4/Group2" instance=ExtResource("7_l5rgk")]
+position = Vector2(291.503, -24.1729)
+progress = 122.0
+h_offset = -20.0
+
+[node name="Group3" parent="Enviroment/Wave4" instance=ExtResource("4_onw7w")]
+process_mode = 4
+
+[node name="RaindeerFollower" parent="Enviroment/Wave4/Group3" instance=ExtResource("8_uyk8w")]
+position = Vector2(310.233, -86.0145)
+progress = 60.0
+
+[node name="RaindeerFollower2" parent="Enviroment/Wave4/Group3" instance=ExtResource("8_uyk8w")]
+position = Vector2(339.719, -111.017)
+progress = 35.0
+h_offset = 30.0
+
+[node name="RaindeerFollower3" parent="Enviroment/Wave4/Group3" instance=ExtResource("8_uyk8w")]
+position = Vector2(279.719, -111.017)
+progress = 35.0
+h_offset = -30.0
+
+[node name="RaindeerFollower4" parent="Enviroment/Wave4/Group3" instance=ExtResource("8_uyk8w")]
+position = Vector2(329, -146)
+h_offset = 20.0
+
+[node name="RaindeerFollower5" parent="Enviroment/Wave4/Group3" instance=ExtResource("8_uyk8w")]
+position = Vector2(289, -146)
+h_offset = -20.0
 
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave4"]
-wait_time = 6.0
+wait_time = 8.0
 autostart = true
 
 [node name="BreakTime" type="Timer" parent="Enviroment/Wave4"]
-wait_time = 5.0
+wait_time = 7.0
 
 [node name="Wave5" type="Node2D" parent="Enviroment"]
 process_mode = 4
@@ -350,62 +426,11 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave5" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave5/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
-
-[node name="ElfFollower2" parent="Enviroment/Wave5/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
-
-[node name="ElfFollower3" parent="Enviroment/Wave5/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
-
 [node name="Group2" parent="Enviroment/Wave5" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="SnowmanFollower" parent="Enviroment/Wave5/Group2" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave5/Group2" instance=ExtResource("4_3lv3d")]
-position = Vector2(309, -146)
-
 [node name="Group3" parent="Enviroment/Wave5" instance=ExtResource("4_onw7w")]
 process_mode = 4
-
-[node name="SnowmanFollower" parent="Enviroment/Wave5/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(329.616, -116.016)
-progress = 30.0
-h_offset = 20.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave5/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(289.616, -116.016)
-progress = 30.0
-h_offset = -20.0
-
-[node name="SnowmanFollower3" parent="Enviroment/Wave5/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 3
-position = Vector2(310.027, -96.0138)
-progress = 50.0
-
-[node name="SnowmanFollower4" parent="Enviroment/Wave5/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(324, -146)
-h_offset = 15.0
-
-[node name="SnowmanFollower5" parent="Enviroment/Wave5/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(294, -146)
-h_offset = -15.0
 
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave5"]
 wait_time = 6.0
@@ -421,62 +446,11 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave6" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave6/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
-
-[node name="ElfFollower2" parent="Enviroment/Wave6/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
-
-[node name="ElfFollower3" parent="Enviroment/Wave6/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
-
 [node name="Group2" parent="Enviroment/Wave6" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="SnowmanFollower" parent="Enviroment/Wave6/Group2" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave6/Group2" instance=ExtResource("4_3lv3d")]
-position = Vector2(309, -146)
-
 [node name="Group3" parent="Enviroment/Wave6" instance=ExtResource("4_onw7w")]
 process_mode = 4
-
-[node name="SnowmanFollower" parent="Enviroment/Wave6/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(329.616, -116.016)
-progress = 30.0
-h_offset = 20.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave6/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(289.616, -116.016)
-progress = 30.0
-h_offset = -20.0
-
-[node name="SnowmanFollower3" parent="Enviroment/Wave6/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 3
-position = Vector2(310.027, -96.0138)
-progress = 50.0
-
-[node name="SnowmanFollower4" parent="Enviroment/Wave6/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(324, -146)
-h_offset = 15.0
-
-[node name="SnowmanFollower5" parent="Enviroment/Wave6/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(294, -146)
-h_offset = -15.0
 
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave6"]
 wait_time = 6.0
@@ -492,62 +466,11 @@ script = ExtResource("4_o2xu1")
 [node name="Group1" parent="Enviroment/Wave7" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="ElfFollower" parent="Enviroment/Wave7/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(309.413, -125.919)
-rotation = 0.0356991
-progress = 20.0
-
-[node name="ElfFollower2" parent="Enviroment/Wave7/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(289, -146)
-h_offset = -20.0
-
-[node name="ElfFollower3" parent="Enviroment/Wave7/Group1" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(329, -146)
-h_offset = 20.0
-
 [node name="Group2" parent="Enviroment/Wave7" instance=ExtResource("4_onw7w")]
 process_mode = 4
 
-[node name="SnowmanFollower" parent="Enviroment/Wave7/Group2" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(309.616, -116.016)
-progress = 30.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave7/Group2" instance=ExtResource("4_3lv3d")]
-position = Vector2(309, -146)
-
 [node name="Group3" parent="Enviroment/Wave7" instance=ExtResource("4_onw7w")]
 process_mode = 4
-
-[node name="SnowmanFollower" parent="Enviroment/Wave7/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(329.616, -116.016)
-progress = 30.0
-h_offset = 20.0
-
-[node name="SnowmanFollower2" parent="Enviroment/Wave7/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 2
-position = Vector2(289.616, -116.016)
-progress = 30.0
-h_offset = -20.0
-
-[node name="SnowmanFollower3" parent="Enviroment/Wave7/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 3
-position = Vector2(310.027, -96.0138)
-progress = 50.0
-
-[node name="SnowmanFollower4" parent="Enviroment/Wave7/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(324, -146)
-h_offset = 15.0
-
-[node name="SnowmanFollower5" parent="Enviroment/Wave7/Group3" instance=ExtResource("4_3lv3d")]
-z_index = 1
-position = Vector2(294, -146)
-h_offset = -15.0
 
 [node name="WaveTimer" type="Timer" parent="Enviroment/Wave7"]
 wait_time = 6.0
@@ -555,6 +478,11 @@ autostart = true
 
 [node name="BreakTime" type="Timer" parent="Enviroment/Wave7"]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ca1cm")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="timeout" from="Enviroment/Wave1/WaveTimer" to="Enviroment/Wave1" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="Enviroment/Wave1/BreakTime" to="Enviroment/Wave1" method="_on_break_time_timeout"]

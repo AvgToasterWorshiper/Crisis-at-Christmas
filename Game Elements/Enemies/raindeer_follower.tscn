@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://4nwyo2v07acb"]
+
+[ext_resource type="PackedScene" uid="uid://csa3uj0j7ci8x" path="res://Game Elements/Enemies/enemy_raindeer.tscn" id="1_xl3hg"]
+
+[node name="RaindeerFollower" type="PathFollow2D"]
+rotates = false
+loop = false
+
+[node name="EnemyRaindeer" parent="." instance=ExtResource("1_xl3hg")]

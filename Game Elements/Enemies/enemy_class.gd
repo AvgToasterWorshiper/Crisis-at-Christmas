@@ -14,9 +14,14 @@ var LIVESCOST : int
 var HEALTHBAR : TextureProgressBar
 var GOLD = 0
 
-func update_health(value):
-	HEALTH += value
-	HEALTHBAR.value += value
+func update_health(value, type):
+	if type == "Physical":
+		value = (value - ARMOR)
+	if type == "Magical":
+		value = (value - MAGICARMOR)
+		
+	HEALTH -= value
+	HEALTHBAR.value -= value
 	
 	if HEALTH < MAX_HEALTH:
 		HEALTHBAR.show()
@@ -36,6 +41,8 @@ func die():
 	
 func _ready():
 	HEALTHBAR = $HealthBar
+	HEALTHBAR.max_value = MAX_HEALTH
+	HEALTHBAR.value = HEALTH
 	$GoldText.text = "+" + str(GOLD)
 	
 func _process(delta):

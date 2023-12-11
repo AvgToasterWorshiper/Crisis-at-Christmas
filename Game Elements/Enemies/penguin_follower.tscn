@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhch1iiyoduru"]
+
+[ext_resource type="PackedScene" uid="uid://dbw27fqe8g6ap" path="res://Game Elements/Enemies/enemy_penguin.tscn" id="1_hu1y3"]
+
+[node name="PenguinFollower" type="PathFollow2D"]
+rotates = false
+loop = false
+
+[node name="EnemyPenguin" parent="." instance=ExtResource("1_hu1y3")]

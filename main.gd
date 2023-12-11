@@ -13,4 +13,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if LIVES <= 0:
-		get_tree().queue_free()
+		get_tree().quit()

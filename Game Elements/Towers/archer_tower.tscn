@@ -12,12 +12,13 @@ radius = 147.0
 script = ExtResource("1_b4yjq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.458824, 0.239216, 0.00392157, 1)
+modulate = Color(0.0235294, 0.0235294, 0.133333, 1)
 texture = SubResource("PlaceholderTexture2D_cuomr")
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+visible = false
 shape = SubResource("CircleShape2D_yc2bg")
 
 [node name="AttackSpeed" type="Timer" parent="."]

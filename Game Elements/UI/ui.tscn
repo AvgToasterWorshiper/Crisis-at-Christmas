@@ -96,8 +96,17 @@ mouse_filter = 2
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.72549, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("2_s7q5f")
-text = "Click Build Spots to Build Towers! GL"
+theme_override_font_sizes/font_size = 10
+text = "Click build spots to build towers
+
+Snowman - [Low health], [No Resistance] [Med Speed]
+
+Penguin - [Med Health], [Low Armor], [Slow Speed]
+
+Raindeer - [Very Low Health], [Low Magic Resist], [Fast Speed]
+"
 autowrap_mode = 2

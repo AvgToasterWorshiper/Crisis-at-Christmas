@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://davyx7yp27sqx"
+path="res://.godot/imported/15 Snowy Mountain.mp3-a259fbfabd7d4b566fac026ea4172cb9.mp3str"
+
+[deps]
+
+source_file="res://Music and Sound/15 Snowy Mountain.mp3"
+dest_files=["res://.godot/imported/15 Snowy Mountain.mp3-a259fbfabd7d4b566fac026ea4172cb9.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

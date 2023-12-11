@@ -15,10 +15,10 @@ size = Vector2(5, 5)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rkvxv"]
 size = Vector2(5, 5)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ukmyh"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qbe6p"]
 size = Vector2(5, 5)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qbe6p"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ukmyh"]
 size = Vector2(5, 5)
 
 [node name="BuildSpot" type="Node2D"]
@@ -39,14 +39,14 @@ item_count = 4
 popup/item_0/text = "Archer Tower 90G"
 popup/item_0/icon = SubResource("PlaceholderTexture2D_lp52y")
 popup/item_0/id = 0
-popup/item_1/text = "Mage Tower 100G"
+popup/item_1/text = "Mage Tower 110G"
 popup/item_1/icon = SubResource("PlaceholderTexture2D_rkvxv")
 popup/item_1/id = 1
-popup/item_2/text = "Barracks 70G"
-popup/item_2/icon = SubResource("PlaceholderTexture2D_ukmyh")
+popup/item_2/text = "Artilery 120G"
+popup/item_2/icon = SubResource("PlaceholderTexture2D_qbe6p")
 popup/item_2/id = 2
-popup/item_3/text = "Artilery 120G"
-popup/item_3/icon = SubResource("PlaceholderTexture2D_qbe6p")
+popup/item_3/text = "Barracks 75G"
+popup/item_3/icon = SubResource("PlaceholderTexture2D_ukmyh")
 popup/item_3/id = 3
 
 [connection signal="mouse_entered" from="MenuButton" to="." method="_on_menu_button_mouse_entered"]

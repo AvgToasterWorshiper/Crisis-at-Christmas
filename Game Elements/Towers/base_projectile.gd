@@ -37,7 +37,7 @@ func _process(delta): # This will make the arrow follow its path # Called every 
 	else:
 		calculated_flightime_pos = last_known_position # TODO MIGHT NOT NEED
 		
-	if t < 1.0: # TODO Controlls flight time and smoothness, this needs to change, need to incorperate delta and lerp over a set flight time possibly.
+	if t < 1.0: # Controlls flight time
 		t += delta
 	elif t >= 1.0:
 		$CollisionShape2D.disabled = true
