@@ -1,6 +1,6 @@
 extends Projectile
 
 func _on_body_entered(body):
-	if body is Enemy:
+	if body == CURRENT_TARGET:
 		body.update_health(DAMAGE)
 		queue_free()

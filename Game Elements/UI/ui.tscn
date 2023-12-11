@@ -91,3 +91,13 @@ text = "Wave TO_INIT/TO_INIT"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_s7q5f")
+text = "Click Build Spots to Build Towers! GL"
+autowrap_mode = 2

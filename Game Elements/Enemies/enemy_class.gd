@@ -30,13 +30,12 @@ func die():
 	$Sprite2D.hide()
 	SPEED = 0
 	$Collision.set_deferred("disabled", true)
-	Main.GOLD += 20
+	Main.GOLD += GOLD
 	UI.update_ui()
 	
 	#queue_free()
 	
 func _ready():
-	print(GOLD)
 	HEALTHBAR = $HealthBar
 	$GoldText.text = "+" + str(GOLD)
 	

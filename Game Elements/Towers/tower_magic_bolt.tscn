@@ -9,6 +9,7 @@ size = Vector2(4, 4)
 radius = 2.0
 
 [node name="TowerMagicBolt" type="Area2D"]
+z_index = 20
 script = ExtResource("1_6mg6f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

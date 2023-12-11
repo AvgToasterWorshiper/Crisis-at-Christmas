@@ -10,7 +10,7 @@ func _init(): # Called on class initialization
 	MAGICARMOR = 0.0
 	DAMAGE = 2.0
 	LIVESCOST = 1
-	GOLD = 20
+	GOLD = 10
 	
 func _on_area_2d_body_entered(body):
 	pass # Fight Enemy

@@ -8,10 +8,10 @@
 radius = 31.0161
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o887l"]
-radius = 12.0416
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drsgg"]
-radius = 12.0416
+radius = 14.0
 
 [sub_resource type="Gradient" id="Gradient_dm5ci"]
 interpolation_mode = 2
@@ -66,6 +66,7 @@ motion_mode = 1
 script = ExtResource("1_uwk5x")
 
 [node name="Agro Range" type="Area2D" parent="."]
+visible = false
 
 [node name="Range" type="CollisionShape2D" parent="Agro Range"]
 shape = SubResource("CircleShape2D_8652o")
@@ -85,6 +86,7 @@ shape = SubResource("CircleShape2D_drsgg")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 visible = false
+z_index = 10
 texture_filter = 1
 offset_left = -6.0
 offset_top = -19.0

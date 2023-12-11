@@ -10,6 +10,7 @@ radius = 1.0
 
 [node name="TowerArrow" type="Area2D"]
 modulate = Color(0.458824, 0.239216, 0.00392157, 1)
+z_index = 20
 script = ExtResource("1_h2ffm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

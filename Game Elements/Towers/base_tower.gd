@@ -6,7 +6,7 @@ var PROJECTILE = PackedScene.new()
 
 var ENEMY_INRANGE_LIST = [] # Has to be up top to be global
 var CURRENT_TARGET : Enemy
-var FURTHEST : Vector2
+var FURTHEST : float
 var CANFIRE = true
 
 # Called when the node enters the scene tree for the first time.
@@ -18,10 +18,9 @@ func _process(delta):
 	
 	if (CURRENT_TARGET == null) or (CURRENT_TARGET not in ENEMY_INRANGE_LIST): #If not already shooting or enemy left range
 		for enemy in ENEMY_INRANGE_LIST: #Find enemy furthest along in range using Vectors
-			print(enemy.global_position)
-			
-			if enemy.global_position > FURTHEST:
-				FURTHEST = enemy.global_position
+				
+			if enemy.get_parent().progress_ratio > FURTHEST:
+				FURTHEST = enemy.get_parent().progress_ratio
 				CURRENT_TARGET = enemy # Set that enemy as target
 	
 	else:
@@ -43,15 +42,15 @@ func _on_range_body_entered(body):
 	#print(body.get_class())
 	#print(body is CharacterBody2D)
 	#if body is Enemy: # If they extend the enemy class
-	if body is CharacterBody2D:
-		#print("Entered Entered Range: {name}".format({"name": body.name}))
+	if body is Enemy:
+		print("Entered Range: {name}".format({"name": body.name}))
 		# Add to enemy in range list
 		ENEMY_INRANGE_LIST.append(body)
 
 func _on_range_body_exited(body):
 	#if body is Enemy: # If they extend the enemy class
-	if body is CharacterBody2D:
-		#print("Entered Left Range: {name}".format({"name": body.name}))
+	if body is Enemy:
+		#print("Left Range: {name}".format({"name": body.name}))
 		# Remove from range list
 		ENEMY_INRANGE_LIST.erase(body)
 
