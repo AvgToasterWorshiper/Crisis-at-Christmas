@@ -54,5 +54,5 @@ func _process(delta):
 	if Path.get_progress_ratio() == 1:
 		Main.LIVES -= LIVESCOST
 		UI.update_ui()
-		queue_free()
+		call_deferred("free")
 	velocity = (global_position - previous_global_position)

@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# CHECK FOR FLUSHED MOB (Has been freed) 
-	if (CURRENT_TARGET is Enemy and CURRENT_TARGET.HEALTH <= 0) or CURRENT_TARGET not in ENEMY_INRANGE_LIST:
+	if is_instance_valid(CURRENT_TARGET) and (CURRENT_TARGET is Enemy and CURRENT_TARGET.HEALTH <= 0) or CURRENT_TARGET not in ENEMY_INRANGE_LIST:
 		#Break Reference (to prevent reference to nil)
 		CURRENT_TARGET = null
 		FURTHEST = 0.0
@@ -27,7 +27,7 @@ func _process(delta):
 				CURRENT_TARGET = enemy # Set that enemy as target
 	
 	# Fire at target based on attack speed timer
-	if CANFIRE and CURRENT_TARGET is Enemy and CURRENT_TARGET in ENEMY_INRANGE_LIST:
+	if is_instance_valid(CURRENT_TARGET) and CANFIRE and CURRENT_TARGET is Enemy and CURRENT_TARGET in ENEMY_INRANGE_LIST:
 		# Initialize arrow projectile with given p0, p1, p2
 		var projectile = PROJECTILE.instantiate()
 		var zero_vector = Vector2(0, 0)
@@ -38,6 +38,7 @@ func _process(delta):
 		projectile.initialize(zero_vector, elevated_midway, relative_tower_orgin, CURRENT_TARGET) 
 		add_child(projectile)
 		CANFIRE = false
+		$AnimationPlayer.play("Fire")
 		$AttackSpeed.start()
 	
 func _on_range_body_entered(body):

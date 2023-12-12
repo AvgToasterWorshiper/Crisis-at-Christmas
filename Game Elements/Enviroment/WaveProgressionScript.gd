@@ -26,7 +26,10 @@ func _on_wave_timer_timeout():
 			get_node("Group" + str(active_group)).process_mode = PROCESS_MODE_INHERIT
 
 func _on_break_time_timeout():
-	Main.CURRENT_WAVE += 1
+	if Main.CURRENT_WAVE < Main.TOTAL_WAVES:
+		Main.CURRENT_WAVE += 1
+	elif Main.CURRENT_WAVE == Main.TOTAL_WAVES:
+		UI.get_node("MarginContainer/HBoxContainer/VBoxContainer3/Label").text = ("All Waves Done!")
 	UI.update_ui()
 	UI.get_node("MarginContainer/HBoxContainer/VBoxContainer3/Label").text = ("Wave " + str(Main.CURRENT_WAVE) + " Begin!")
 	$BreakTime.stop()

@@ -13,7 +13,7 @@ var projectile_arc = -100 # Represents a negetive y-value at the elevated midpoi
 var last_known_position : Vector2
 	
 func initialize(absolute_orgin, elevated_midway, relative_tower_orgin, c_t): # When initialized we are going to set a target path up (velocity, x/y etc)
-	p0 = absolute_orgin #Spawn location of projectile
+	p0 = absolute_orgin  - Vector2(0, 20) #Spawn location of projectile, #TODO with height adjustment WIP
 	p1 = elevated_midway #Arc height position to interpolate
 	p2 = relative_tower_orgin # current target position from call time
 	CURRENT_TARGET = c_t # Live reference to current target object

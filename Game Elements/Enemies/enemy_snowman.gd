@@ -4,13 +4,13 @@ extends Enemy
 func _init(): # Called on class initialization
 	
 	SPEED = 30.0
-	MAX_HEALTH = 6.0
-	HEALTH = 6.0
+	MAX_HEALTH = 8.0
+	HEALTH = 8.0
 	ARMOR = 0.0
 	MAGICARMOR = 0.0
 	DAMAGE = 2.0
 	LIVESCOST = 1
-	GOLD = 5
+	GOLD = 8
 	
 func _on_area_2d_body_entered(body):
 	pass # Fight Enemy

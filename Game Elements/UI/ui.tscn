@@ -1,14 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://baruv7r3any4c"]
 
 [ext_resource type="Script" path="res://Game Elements/UI/ui.gd" id="1_hhfcg"]
+[ext_resource type="Texture2D" uid="uid://bf287cbx10nas" path="res://Art Assets/UI/Health.png" id="2_a5v1n"]
 [ext_resource type="FontFile" uid="uid://uv86d3muhwsi" path="res://Game Elements/UI/Fonts/kongtext.ttf" id="2_s7q5f"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cq07v"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_73qhe"]
-size = Vector2(10, 10)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rqt7r"]
+[ext_resource type="Texture2D" uid="uid://lakrpypwv5qn" path="res://Art Assets/UI/Gold.png" id="4_rsl3v"]
+[ext_resource type="Texture2D" uid="uid://dr6831aydufx3" path="res://Art Assets/UI/Skull.png" id="5_e3xrp"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_hhfcg")
@@ -41,13 +37,15 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Lives"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_cq07v")
+texture = ExtResource("2_a5v1n")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Lives"]
+texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.8, 0.160784, 0.266667, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("2_s7q5f")
 text = "Lives: TO_INIT"
 
@@ -57,13 +55,15 @@ mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Gold"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_73qhe")
+texture = ExtResource("4_rsl3v")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Gold"]
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.823529, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("2_s7q5f")
 text = "Gold: TO_INIT"
 
@@ -77,30 +77,35 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_rqt7r")
+texture = ExtResource("5_e3xrp")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.858824, 0.835294, 0.827451, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("2_s7q5f")
 text = "Wave TO_INIT/TO_INIT"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+texture_filter = 1
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0.72549, 0, 1)
+theme_override_colors/font_color = Color(0.290196, 0.466667, 0.788235, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_outline_size = 7
+theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("2_s7q5f")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 16
 text = "Click build spots to build towers
 
 Snowman - [Low health], [No Resistance] [Med Speed]

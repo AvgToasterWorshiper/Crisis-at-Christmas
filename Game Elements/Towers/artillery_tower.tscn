@@ -1,19 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmhqoy4ttx4nk"]
+[gd_scene load_steps=7 format=3 uid="uid://dmhqoy4ttx4nk"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/artillery_tower.gd" id="1_jbtfx"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cuomr"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://8ndwssw0y57y" path="res://Art Assets/Towers/furnace.png" id="2_v81d2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc2bg"]
 radius = 147.0
+
+[sub_resource type="Animation" id="Animation_wsvio"]
+resource_name = "Fire"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_lqt0a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xq7hm"]
+_data = {
+"Fire": SubResource("Animation_wsvio"),
+"RESET": SubResource("Animation_lqt0a")
+}
 
 [node name="ArtilleryTower" type="Node2D"]
 script = ExtResource("1_jbtfx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.458824, 0.239216, 0.00392157, 1)
-texture = SubResource("PlaceholderTexture2D_cuomr")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_v81d2")
+hframes = 2
+vframes = 3
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -22,6 +60,11 @@ shape = SubResource("CircleShape2D_yc2bg")
 
 [node name="AttackSpeed" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xq7hm")
+}
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://t5vqg1cm5b1u"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/tower_magic_bolt.gd" id="1_6mg6f"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e5hdo"]
-size = Vector2(4, 4)
+[ext_resource type="Texture2D" uid="uid://c0ulqmfrqww8o" path="res://Art Assets/Projectiles and Effects/mageball_v3.png" id="2_uqmad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ndcq8"]
-radius = 2.0
+radius = 4.0
 
 [node name="TowerMagicBolt" type="Area2D"]
 z_index = 20
 script = ExtResource("1_6mg6f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.317647, 0.796078, 1, 1)
-texture = SubResource("PlaceholderTexture2D_e5hdo")
+texture_filter = 1
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uqmad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ndcq8")

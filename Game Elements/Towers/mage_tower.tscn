@@ -1,28 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4lrdxn00w22n"]
+[gd_scene load_steps=6 format=3 uid="uid://b4lrdxn00w22n"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/mage_tower.gd" id="1_5hho2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s48ta"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://dqg3gccsbnwh2" path="res://Art Assets/Towers/magetower.png" id="2_5dgap"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j78r3"]
-radius = 132.0
+radius = 132.015
+
+[sub_resource type="Animation" id="Animation_jcgsl"]
+resource_name = "Fire"
+length = 0.8
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74jyy"]
+_data = {
+"Fire": SubResource("Animation_jcgsl")
+}
 
 [node name="MageTower" type="Node2D"]
-modulate = Color(0.317647, 0.796078, 1, 1)
 texture_filter = 1
 script = ExtResource("1_5hho2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_s48ta")
+scale = Vector2(2, 2)
+texture = ExtResource("2_5dgap")
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+visible = false
 shape = SubResource("CircleShape2D_j78r3")
 
 [node name="AttackSpeed" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_74jyy")
+}
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

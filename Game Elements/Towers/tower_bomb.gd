@@ -28,6 +28,7 @@ func _process(delta): # This will make the arrow follow its path # Called every 
 		$ExplosionCollision.disabled = false
 		$ExplosionCollision.show()
 		$Explosion.start()
+		$AnimationPlayer.play("Expload")
 
 func _on_explosion_timeout():
 	$ExplosionCollision.disabled = true

@@ -1,38 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://hqbuqy8i54en"]
+[gd_scene load_steps=8 format=3 uid="uid://hqbuqy8i54en"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/tower_bomb.gd" id="1_x61fs"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5ekjp"]
-size = Vector2(5, 5)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_luink"]
-size = Vector2(40, 40)
+[ext_resource type="Texture2D" uid="uid://cobgi5e587k4e" path="res://Art Assets/Projectiles and Effects/coal.png" id="2_vb5ft"]
+[ext_resource type="Texture2D" uid="uid://b5semh2itwltr" path="res://Art Assets/Projectiles and Effects/explosion.png" id="3_fl753"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skl08"]
 radius = 20.025
 
+[sub_resource type="Animation" id="Animation_s000n"]
+resource_name = "Expload"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_d7ggn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_om450"]
+_data = {
+"Expload": SubResource("Animation_s000n"),
+"RESET": SubResource("Animation_d7ggn")
+}
+
 [node name="TowerBomb" type="Area2D"]
-modulate = Color(0.458824, 0.239216, 0.00392157, 1)
 z_index = 20
 script = ExtResource("1_x61fs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 1, 1)
-texture = SubResource("PlaceholderTexture2D_5ekjp")
+texture_filter = 1
+texture = ExtResource("2_vb5ft")
 
 [node name="ExplosionSprite" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 0, 0, 0.568627)
-texture = SubResource("PlaceholderTexture2D_luink")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_fl753")
+hframes = 2
+vframes = 3
 
 [node name="ExplosionCollision" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_skl08")
 disabled = true
 
 [node name="Explosion" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ExplosionSprite")
+libraries = {
+"": SubResource("AnimationLibrary_om450")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Explosion" to="." method="_on_explosion_timeout"]

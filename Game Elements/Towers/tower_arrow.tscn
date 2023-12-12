@@ -1,21 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0duv5c3fkqta"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/tower_arrow.gd" id="1_h2ffm"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdnmu"]
-size = Vector2(2, 2)
+[ext_resource type="Texture2D" uid="uid://08m8hmtvi22x" path="res://Art Assets/Projectiles and Effects/snowball_v2.png" id="2_fevu6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_68xjx"]
-radius = 1.0
+radius = 3.0
 
 [node name="TowerArrow" type="Area2D"]
-modulate = Color(0.458824, 0.239216, 0.00392157, 1)
 z_index = 20
+texture_filter = 1
 script = ExtResource("1_h2ffm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 1, 1)
-texture = SubResource("PlaceholderTexture2D_xdnmu")
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fevu6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_68xjx")

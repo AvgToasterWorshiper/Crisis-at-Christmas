@@ -1,28 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://djm7kgb3plrrt"]
+[gd_scene load_steps=7 format=3 uid="uid://djm7kgb3plrrt"]
 
 [ext_resource type="Script" path="res://Game Elements/Towers/archer_tower.gd" id="1_b4yjq"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cuomr"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://bqb7e2jvyyoaa" path="res://Art Assets/Towers/igloo.png" id="2_qsq2c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc2bg"]
-radius = 147.0
+radius = 147.003
+
+[sub_resource type="Animation" id="Animation_s7tfn"]
+resource_name = "Fire"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1saxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lb5rx"]
+_data = {
+"Fire": SubResource("Animation_s7tfn"),
+"RESET": SubResource("Animation_1saxi")
+}
 
 [node name="ArcherTower" type="Node2D"]
 script = ExtResource("1_b4yjq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0235294, 0.0235294, 0.133333, 1)
-texture = SubResource("PlaceholderTexture2D_cuomr")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_qsq2c")
+hframes = 2
+vframes = 3
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-visible = false
 shape = SubResource("CircleShape2D_yc2bg")
 
 [node name="AttackSpeed" type="Timer" parent="."]
 wait_time = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lb5rx")
+}
+speed_scale = 2.0
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
