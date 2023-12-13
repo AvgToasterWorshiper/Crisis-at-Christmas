@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc09f83f-038a-44d7-9ed6-36e81545c1cf" name="Changes" comment="idk why none of the new code got committed, that's just amazing">
+    <list default="true" id="cc09f83f-038a-44d7-9ed6-36e81545c1cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crisis At Christmas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crisis At Christmas/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/enemy_reindeer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/enemy_reindeer.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/EnemyElf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/EnemyElf.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game Elements/Enemies/EnemyReindeer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game Elements/Enemies/EnemyReindeer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,25 +38,32 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b87bd474f7664f1781d7cbadafd9e8894af200/50/9b75396b/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b87bd474f7664f1781d7cbadafd9e8894af200/ab/bddf66ea/Node2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b87bd474f7664f1781d7cbadafd9e8894af200/d2/963ddcda/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b87bd474f7664f1781d7cbadafd9e8894af200/f0/ec6817e0/PopupMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/195dda33dc7eb1b4ed4da5fc5741796f3cccc38/BuildSpot_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/962f8e12b934589f9647ed1958049ffae8b4835/Enemy_ScriptMethods.generated.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Crisis-at-Christmas/Game Elements/Enemies/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2YrxLQ66GQ4ti7fkoOEMhFAKOIW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -121,7 +129,9 @@
       <workItem from="1702051255754" duration="3367000" />
       <workItem from="1702076041599" duration="3577000" />
       <workItem from="1702080277570" duration="2785000" />
-      <workItem from="1702092635655" duration="1019000" />
+      <workItem from="1702092635655" duration="1204000" />
+      <workItem from="1702176896905" duration="395000" />
+      <workItem from="1702177595991" duration="1509000" />
     </task>
     <task id="LOCAL-00001" summary="started porting ui stuff to cs">
       <option name="closed" value="true" />
@@ -155,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702092677938</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented enemies, now waiting for things to happen">
+      <option name="closed" value="true" />
+      <created>1702093818658</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702093818658</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,11 +181,13 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="started porting ui stuff to cs" />
     <MESSAGE value="actually add the C# stuff" />
     <MESSAGE value="Start C# port" />
     <MESSAGE value="idk why none of the new code got committed, that's just amazing" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk why none of the new code got committed, that's just amazing" />
+    <MESSAGE value="Implemented enemies, now waiting for things to happen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented enemies, now waiting for things to happen" />
   </component>
 </project>
